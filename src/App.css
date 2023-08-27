@@ -1,0 +1,142 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+header .logo {
+  font-size: 75px;
+  font-weight: bold;
+  position: relative;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.logo a{
+  color: black;
+}
+
+.logo span {
+  position: absolute;
+  bottom: -20px;
+  right: -30px;
+}
+
+.nav-bar ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+  gap: 70px;
+}
+
+.nav-bar ul li {
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+}
+
+.cars-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: min(50%, 350px);
+  position: relative;
+  font-family: "Inria Serif", serif;
+}
+
+.image-wrapper {
+  padding: 10px;
+}
+
+.image-wrapper img {
+  height: 200px;
+}
+
+.central-car {
+  margin: auto;
+}
+
+.left-car .car-image,
+.right-car .car-image {
+  height: 150px;
+}
+
+.left-car {
+  position: absolute;
+  left: -15%;
+}
+
+.right-car {
+  position: absolute;
+  right: -15%;
+}
+
+.forward-button,
+.backward-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.808);
+  border: none;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.forward-button:hover,
+.backward-button:hover {
+  background: rgba(0, 0, 0, 0.39);
+}
+
+.forward-button {
+  right: 30px;
+}
+
+.backward-button {
+  left: 30px;
+}
+
+footer{
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p{
+  margin: 5px;
+}
+
+.price span{
+  font-weight: bolder;
+}
+
+footer .bid{
+  background-color: black;
+  color: #fcf9ef;
+  width: min-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 3%;
+  font-weight: bolder;
+  line-height: 1;
+}
+
+
