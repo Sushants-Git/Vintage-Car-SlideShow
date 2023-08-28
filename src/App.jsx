@@ -30,10 +30,10 @@ function App() {
       async function fetch() {
         for (let i = 0; i < carsArray.length; i++) {
           let importedImagePath = await import(
-            `./assets/${carsArray[i].image}.png`
+            `./assetsNew/${carsArray[i].image}.webp`
           );
           let importedImagePathWithCircle = await import(
-            `./assets/${carsArray[i].image}WithCircle.png`
+            `./assetsNew/${carsArray[i].image}WithCircle.webp`
           );
 
           tempImagePathArray.push(importedImagePath.default);
