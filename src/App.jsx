@@ -18,12 +18,14 @@ let transitionGoDown = {
 
 function App() {
   let [carsArray, setCarsArray] = useState(carsData);
+  let [carsArrayWithCircle, setCarsArrayWithCircle] = useState(carsData);
   let [carsFetched, setCarsFetched] = useState(false);
   let [again, setAgain] = useState(false);
 
   useEffect(
     function () {
       let tempImagePathArray = [];
+      let tempImagePathArrayWithCircle = [];
 
       async function fetch() {
         for (let i = 0; i < carsArray.length; i++) {
@@ -33,7 +35,9 @@ function App() {
           let importedImagePathWithCircle = await import(
             `./assets/${carsArray[i].image}WithCircle.png`
           );
+
           tempImagePathArray.push(importedImagePath.default);
+          tempImagePathArrayWithCircle.push(importedImagePathWithCircle.default);
         }
 
         setCarsArray((prevValue) => {
@@ -45,6 +49,17 @@ function App() {
             };
           }
           return tempArray;
+        });
+
+        setCarsArrayWithCircle((prevValue) => {
+          let tempArrayWithCircle = JSON.parse(JSON.stringify(prevValue));
+          for (let i = 0; i < tempArrayWithCircle.length; i++) {
+            tempArrayWithCircle[i] = {
+              ...tempArrayWithCircle[i],
+              imagePath: tempImagePathArrayWithCircle[i],
+            };
+          }
+          return tempArrayWithCircle;
         });
 
         setCarsFetched((prevValue) => true);
@@ -65,6 +80,17 @@ function App() {
       }
       return tempArray;
     });
+
+    setCarsArrayWithCircle((prevValue) => {
+      let tempArrayWithCircle = JSON.parse(JSON.stringify(carsArrayWithCircle));
+      for (let i = 0; i < tempArrayWithCircle.length - 1; i++) {
+        let temp = tempArrayWithCircle[i];
+        tempArrayWithCircle[i] = tempArrayWithCircle[i + 1];
+        tempArrayWithCircle[i + 1] = temp;
+      }
+      return tempArrayWithCircle;
+    });
+
     setAgain((prevValue) => !prevValue);
   }
 
@@ -77,6 +103,16 @@ function App() {
         tempArray[i - 1] = temp;
       }
       return tempArray;
+    });
+
+    setCarsArrayWithCircle((prevValue) => {
+      let tempArrayWithCircle = JSON.parse(JSON.stringify(carsArrayWithCircle));
+      for (let i = tempArrayWithCircle.length - 1; i > 0; i--) {
+        let temp = tempArrayWithCircle[i];
+        tempArrayWithCircle[i] = tempArrayWithCircle[i - 1];
+        tempArrayWithCircle[i - 1] = temp;
+      }
+      return tempArrayWithCircle;
     });
     setAgain((prevValue) => !prevValue);
   }
@@ -135,12 +171,7 @@ function App() {
             >
               <img
                 className="car-image"
-                src={
-                  carsArray[1].imagePath.substr(
-                    0,
-                    carsArray[1].imagePath.length - 4
-                  ) + "WithCircle.png"
-                }
+                src={carsArrayWithCircle[1].imagePath}
                 alt={carsArray[1].name}
               />
             </motion.div>
