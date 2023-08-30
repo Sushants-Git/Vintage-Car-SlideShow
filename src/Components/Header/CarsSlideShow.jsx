@@ -25,7 +25,7 @@ export default function CarsSlideShow({
 }) {
   return (
     <>
-      {carsFetched && (
+      {carsFetched ? (
         <main>
           <div className="cars-slider">
             <motion.div
@@ -79,7 +79,7 @@ export default function CarsSlideShow({
             </button>
           </div>
         </main>
-      )}
+      ) : <h1>Loading Some Cool Cars...</h1>}
     </>
   );
 }

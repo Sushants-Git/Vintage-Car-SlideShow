@@ -12,6 +12,13 @@ import Image4 from "./assetsNew/FourthCarWithCircle.webp";
 import Image5 from "./assetsNew/FifthCarWithCircle.webp";
 import Image6 from "./assetsNew/SixthCarWithCircle.webp";
 
+import Image7 from "./assetsNew/FirstCar.webp";
+import Image8 from "./assetsNew/SecondCar.webp";
+import Image9 from "./assetsNew/ThirdCar.webp";
+import Image10 from "./assetsNew/FourthCar.webp";
+import Image11 from "./assetsNew/FifthCar.webp";
+import Image12 from "./assetsNew/SixthCar.webp";
+
 import useImagePreloader from "./Components/CustomHooks/useImagePreloader";
 
 function App() {
@@ -147,7 +154,20 @@ function App() {
   );
 }
 
-const preloadSrcList = [Image1, Image2, Image3, Image4, Image5, Image6];
+const preloadSrcList = [
+  Image1,
+  Image2,
+  Image3,
+  Image4,
+  Image5,
+  Image6,
+  Image7,
+  Image8,
+  Image9,
+  Image10,
+  Image11,
+  Image12,
+];
 
 function Component() {
   const { imagesPreloaded } = useImagePreloader(preloadSrcList);
